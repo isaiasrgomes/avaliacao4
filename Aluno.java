@@ -1,5 +1,4 @@
 
-
 public class Aluno {
 	private String matricula;
 	private String nome;
@@ -12,7 +11,7 @@ public class Aluno {
 
 	public void media() {
 		double media = (this.n1 + this.n2 + this.n3 + this.n4) / 4;
-		System.out.println("A m�dia do aluno � = " + media);
+		System.out.println("A média do aluno é = " + media);
 	}
 
 	public boolean aprovado() {

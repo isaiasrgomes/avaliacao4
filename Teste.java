@@ -74,13 +74,17 @@ public class Teste {
 				a1.setNome(s.next());
 				System.out.println("Digite o código da turma: ");
 				String codigo = s.next();
+				boolean achou = false;
 				for (int i = 0; i < turmas.size(); i++) {
-					if (codigo.equals(turmas.get(i).getCodigo())){
+					if (codigo.equals(turmas.get(i).getCodigo())) {
+						achou = true;
 						turmas.get(i).adiciona(a1);
 						System.out.println("Aluno matriculado com sucesso!\n");
-					} else {
-						System.out.println("Codigo de turma não encontrado\n");
+						break;
 					}
+				}
+				if (!achou) {
+					System.out.println("Codigo de turma5 não encontrado\n");
 				}
 			} else if (opcao == 5) {
 				System.out.println("+--------------------------------+");
@@ -88,10 +92,10 @@ public class Teste {
 				System.out.println("+--------------------------------+");
 				System.out.println("Digite a matricula do Aluno: ");
 				String matricula = s.next();
-				Aluno m = new Aluno(matricula);
+				boolean achou = false;
 				for (int i = 0; i < turmas.size(); i++) {
-					if (turmas.get(i).alunos.contains(m)) {
-						
+					if (matricula.equals(turmas.get(i).getAlunos().get(i).getMatricula())) {
+						achou = true;
 						System.out.println("Digite a Primeira nota: ");
 						double n1 = s.nextDouble();
 						System.out.println("Digite a Segunda nota: ");
@@ -105,27 +109,33 @@ public class Teste {
 						turmas.get(i).getAlunos().get(i).setN2(n2);
 						turmas.get(i).getAlunos().get(i).setN3(n3);
 						turmas.get(i).getAlunos().get(i).setN4(n4);
-						
+
 						System.out.println("Nota 1: " + turmas.get(i).getAlunos().get(i).getN1());
 						System.out.println("Nota 2: " + turmas.get(i).getAlunos().get(i).getN2());
 						System.out.println("Nota 3: " + turmas.get(i).getAlunos().get(i).getN3());
 						System.out.println("Nota 4: " + turmas.get(i).getAlunos().get(i).getN4());
-					} else {
-						System.out.println("Matricula não encontrada!");
 					}
-					System.out.println("\n");
-				}
 
+				}
+				
+				if (!achou) {
+					System.out.println("Matricula incorreta");
+				}
 			} else if (opcao == 6) {
 				System.out.println("+--------------------------------+");
 				System.out.println("|     Listar Alunos por Turma    |");
 				System.out.println("+--------------------------------+");
 				System.out.println("Digite o codigo da turma: ");
 				String codigo = s.next();
-				
+				boolean achou = false;
 				for (int i = 0; i < turmas.size(); i++) {
 					if (codigo.equals(turmas.get(i).getCodigo())) {
+						achou = true;
 						turmas.get(i).frequencia();
+					}	
+				}
+				if (!achou) {
+					System.out.println("Turma não encontrada");
 				}
 			} else if (opcao == 7) {
 				System.out.println("+--------------------------------+");
@@ -133,10 +143,15 @@ public class Teste {
 				System.out.println("+--------------------------------+");
 				System.out.println("Digite o código da turma: ");
 				String codigo = s.next();
-				
+				boolean achou = false;
 				for (int i = 0; i < turmas.size(); i++) {
 					if (codigo.equals(turmas.get(i).getCodigo())) {
+						achou = true;
 						System.out.println(turmas.get(i).aprovados());
+						if (!achou) {
+							System.out.println("Código de turma incorreto");
+						}
+					}
 				}
 			} else if (opcao == 8) {
 				System.out.println("+--------------------------------+");
@@ -144,12 +159,17 @@ public class Teste {
 				System.out.println("+--------------------------------+");
 				System.out.println("Digite o código da turma: ");
 				String codigo = s.next();
+				boolean achou = false;
 				for (int i = 0; i < turmas.size(); i++) {
 					if (codigo.equals(turmas.get(i).getCodigo())) {
+						achou = true;
 						System.out.println(turmas.get(i).reprovados());
-					} 
+					}
 				}
-				
+				if (!achou) {
+					System.out.println("Turma não encontrada");
+				}
+
 			} else if (opcao == 0) {
 				System.out.println("Saindo do programa....");
 			} else {
