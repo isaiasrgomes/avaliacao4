@@ -8,6 +8,7 @@ public class Teste {
 		ArrayList<Turma> turmas = new ArrayList<Turma>();
 		int opcao = -1;
 		while (opcao != 0) {
+			System.out.println("\n");
 			System.out.println("+--------------------------------+");
 			System.out.println("|              Menu              |");
 			System.out.println("+--------------------------------+");
@@ -28,7 +29,7 @@ public class Teste {
 			opcao = s.nextInt();
 			if (opcao == 1) {
 				System.out.println("+--------------------------------+");
-				System.out.println("|========== Nova Turma ==========|");
+				System.out.println("|           Nova Turma           |");
 				System.out.println("+--------------------------------+");
 				System.out.println("\nDigite o código da turma: ");
 				Turma turma = new Turma(s.next());
@@ -41,7 +42,7 @@ public class Teste {
 
 			} else if (opcao == 2) {
 				System.out.println("+---------------------------------+");
-				System.out.println("|====== Nova Turma Superior ======|");
+				System.out.println("|       Nova Turma Superior       |");
 				System.out.println("+---------------------------------+");
 				System.out.println("\nDigite o código da turma: ");
 				String codigo = s.next();
@@ -57,15 +58,14 @@ public class Teste {
 
 			} else if (opcao == 3) {
 				System.out.println("+---------------------------------+");
-				System.out.println("|======== Lista de Turmas ========|");
+				System.out.println("|         Lista de Turmas         |");
 				System.out.println("+---------------------------------+");
-				System.out.println("\n");
 				for (int i = 0; i < turmas.size(); i++) {
 					System.out.println(turmas.get(i));
 				}
 			} else if (opcao == 4) {
 				System.out.println("+--------------------------------+");
-				System.out.println("|========== Novo Aluno ==========|");
+				System.out.println("|            Novo Aluno          |");
 				System.out.println("+--------------------------------+");
 				System.out.println("\nDigite a matricula do aluno");
 				String matricula = s.next();
@@ -74,9 +74,8 @@ public class Teste {
 				a1.setNome(s.next());
 				System.out.println("Digite o código da turma: ");
 				String codigo = s.next();
-				Turma c = new Turma(codigo);
 				for (int i = 0; i < turmas.size(); i++) {
-					if (turmas.contains(c)) {
+					if (codigo.equals(turmas.get(i).getCodigo())){
 						turmas.get(i).adiciona(a1);
 						System.out.println("Aluno matriculado com sucesso!\n");
 					} else {
@@ -84,7 +83,9 @@ public class Teste {
 					}
 				}
 			} else if (opcao == 5) {
-				
+				System.out.println("+--------------------------------+");
+				System.out.println("|           Lançar Notas         |");
+				System.out.println("+--------------------------------+");
 				System.out.println("Digite a matricula do Aluno: ");
 				String matricula = s.next();
 				Aluno m = new Aluno(matricula);
@@ -116,11 +117,14 @@ public class Teste {
 				}
 
 			} else if (opcao == 6) {
+				System.out.println("+--------------------------------+");
+				System.out.println("|     Listar Alunos por Turma    |");
+				System.out.println("+--------------------------------+");
 				System.out.println("Digite o codigo da turma: ");
 				String codigo = s.next();
-				Turma c = new Turma(codigo);
+				
 				for (int i = 0; i < turmas.size(); i++) {
-					if (turmas.contains(c)) {
+					if (codigo.equals(turmas.get(i).getCodigo())) {
 						turmas.get(i).frequencia();
 					} else {
 						System.out.println("Turma não encontrada");
@@ -128,11 +132,14 @@ public class Teste {
 					System.out.println("\n");
 				}
 			} else if (opcao == 7) {
+				System.out.println("+--------------------------------+");
+				System.out.println("|   Listar Aprovados por Turma   |");
+				System.out.println("+--------------------------------+");
 				System.out.println("Digite o código da turma: ");
 				String codigo = s.next();
-				Turma c = new Turma(codigo);
+				
 				for (int i = 0; i < turmas.size(); i++) {
-					if (turmas.contains(c)) {
+					if (codigo.equals(turmas.get(i).getCodigo())) {
 						System.out.println(turmas.get(i).aprovados());
 					} else {
 						System.out.println("C�digo de turma incorreto");
@@ -140,16 +147,17 @@ public class Teste {
 
 				}
 			} else if (opcao == 8) {
+				System.out.println("+--------------------------------+");
+				System.out.println("|  Listar Reprovados por Turma   |");
+				System.out.println("+--------------------------------+");
 				System.out.println("Digite o código da turma: ");
 				String codigo = s.next();
-				Turma c = new Turma(codigo);
 				for (int i = 0; i < turmas.size(); i++) {
-					if (turmas.contains(c)) {
+					if (codigo.equals(turmas.get(i).getCodigo())) {
 						System.out.println(turmas.get(i).reprovados());
-					} else {
-						System.out.println("Código de turma incorreto");
-					}
+					} 
 				}
+				
 			} else if (opcao == 0) {
 				System.out.println("Saindo do programa....");
 			} else {
