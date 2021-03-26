@@ -126,10 +126,6 @@ public class Teste {
 				for (int i = 0; i < turmas.size(); i++) {
 					if (codigo.equals(turmas.get(i).getCodigo())) {
 						turmas.get(i).frequencia();
-					} else {
-						System.out.println("Turma não encontrada");
-					}
-					System.out.println("\n");
 				}
 			} else if (opcao == 7) {
 				System.out.println("+--------------------------------+");
@@ -141,10 +137,6 @@ public class Teste {
 				for (int i = 0; i < turmas.size(); i++) {
 					if (codigo.equals(turmas.get(i).getCodigo())) {
 						System.out.println(turmas.get(i).aprovados());
-					} else {
-						System.out.println("C�digo de turma incorreto");
-					}
-
 				}
 			} else if (opcao == 8) {
 				System.out.println("+--------------------------------+");
